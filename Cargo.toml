@@ -20,5 +20,5 @@ panic = "abort"
 overflow-checks = true
 
 # build: cargo build --target wasm32-unknown-unknown --release
-# deploy: near deploy --wasmFile target/wasm32-unknown-unknown/release/near_rust_counter.wasm --accountId <YourAccount.testnet>
+# deploy: near deploy --wasmFile target/wasm32-unknown-unknown/release/mini_posts.wasm --accountId <YourAccount.testnet>
 # test: cargo test --package mini-posts -- --nocapture

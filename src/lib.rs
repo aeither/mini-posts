@@ -3,8 +3,6 @@ use std::collections::HashMap;
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::{env, log, near_bindgen};
 
-near_sdk::setup_alloc!();
-
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize, Default)]
 pub struct Poster {
@@ -28,7 +26,6 @@ impl Poster {
 
     #[payable]
     pub fn set_message(&mut self, message: String) {
-        // assert!(env::id == self.val, "Owner's method");
         let account_id = env::signer_account_id();
         log!(
             "{} set_message with message {} in {}.",
@@ -97,7 +94,7 @@ mod tests {
         let mut contract = Poster::default();
         contract.increment();
         contract.set_message("Hello World".to_string());
-        // confirm that we received -1 when calling get_num
+
         assert_eq!(Some("Hello World"), contract.get_message(1).as_deref());
     }
 }
